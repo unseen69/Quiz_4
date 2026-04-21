@@ -1,0 +1,65 @@
+package lab1;
+
+/**
+ * Abstract base type that holds the common state and behavior for all lab 1 courses.
+ */
+public abstract class Course {
+
+    private String courseName;
+    private String courseNumber;
+    private double credits;
+
+    protected Course(String courseName, String courseNumber) {
+        setCourseName(courseName);
+        setCourseNumber(courseNumber);
+    }
+
+    public final String getCourseName() {
+        return courseName;
+    }
+
+    public final void setCourseName(String courseName) {
+        this.courseName = requireText(courseName, "courseName");
+    }
+
+    public final String getCourseNumber() {
+        return courseNumber;
+    }
+
+    public final void setCourseNumber(String courseNumber) {
+        this.courseNumber = requireText(courseNumber, "courseNumber");
+    }
+
+    public final double getCredits() {
+        return credits;
+    }
+
+    public void setCredits(double credits) {
+        requireCredits(credits);
+        this.credits = credits;
+    }
+
+    public abstract String getPrerequisites();
+
+    protected final String requireText(String value, String fieldName) {
+        if (value == null || value.trim().isEmpty()) {
+            throw new IllegalArgumentException(fieldName + " cannot be null or empty");
+        }
+        return value;
+    }
+
+    protected final void requireCredits(double credits) {
+        if (credits < 0.5 || credits > 4.0) {
+            throw new IllegalArgumentException("credits must be in the range 0.5 to 4.0");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Course Name: " + getCourseName()
+                + "\nCourse Number: " + getCourseNumber()
+                + "\nCredits: " + getCredits()
+                + "\nPrerequisites: " + getPrerequisites();
+    }
+}
+
