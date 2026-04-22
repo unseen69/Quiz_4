@@ -22,7 +22,6 @@ public class CourseDemo {
         }
 
         /*
-         * Instruction #2 clarification:
          * We do not re-declare methods in each class because they are shared by
          * the Course interface contract and implemented once per class.
          * We do re-declare fields in each subclass because interfaces cannot hold

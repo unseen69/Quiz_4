@@ -21,7 +21,6 @@ public class CourseDemo {
         System.out.println(advancedJava);
 
         /*
-         * Instruction #2 clarification:
          * We do not re-declare all properties in each subclass. Common properties
          * (courseName, courseNumber, credits) are declared once in Course and inherited.
          * Only subclass-specific property data (prerequisites) stays in subclasses.
